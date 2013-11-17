@@ -1,0 +1,113 @@
+# Managed by Chef for <%= node[:symfony][:domain] %>
+server {
+    listen 80;
+    server_name www.<%= node[:symfony][:domain] %>;
+    rewrite ^ $scheme://<%= node[:symfony][:domain] %>$request_uri? permanent;
+}
+
+server {
+    listen 80 default_server;
+    server_name localhost <%= node[:symfony][:domain] %>;
+
+<% if node[:symfony][:remove_trailing_slash] %>
+    # remove trailing slash
+    rewrite ^/(.*)/$ $scheme://<%= node[:symfony][:domain] %>/$1 permanent;
+<% end %>
+
+
+    root <%= node[:symfony][:document_root] %>;
+
+    error_log /var/log/nginx/<%= node[:symfony][:domain] %>-error.log error;
+    access_log off;
+
+    client_max_body_size 4M;
+
+    index app_dev.php;
+
+    try_files $uri $uri/ @rewrite;
+
+    location @rewrite {
+        rewrite ^/(.*)$ /app_dev.php/$1;
+    }
+
+    location = /nginx_stub_status {
+        stub_status on;
+        allow 127.0.0.1;
+        deny all;
+    }
+
+#     gzip on;
+#     gzip_disable "msie6";
+#     gzip_vary on;
+#     gzip_proxied any;
+#     gzip_comp_level 6;
+#     gzip_types text/plain text/xml text/css text/javascript application/json application/javascript application/x-javascript application/xml application/xhtml+xml application/rss+xml;
+
+# #    Uncomment only if you're *not* using LiipImagineBundle or similar image generation tool
+# #    This context will mess with it and cache 404 for not yet generated images
+# #    location ~* \.(?:ico|css|js|gif|jpe?g|png)$ {
+# #        expires 18h;
+# #        add_header Cache-Control "public, must-revalidate, proxy-revalidate";
+# #    }
+
+#     location ~* \.(?:css|js)$ {
+#     #    You need to recompile nginx to use gzip_static
+#     #    See http://wiki.nginx.org/HttpGzipStaticModule
+#     #    gzip_static on;
+
+#         expires 18h;
+#         add_header Cache-Control "public, must-revalidate, proxy-revalidate";
+#     }
+
+#     location ~ \.php {
+#         limit_conn  default  30;
+
+# #        Messes up with SEF URIs, not sure it's even needed
+# #        try_files $uri =404;
+
+#         fastcgi_index app.php;
+
+#         fastcgi_pass unix:/var/run/php5-fpm.sock;        
+#         include fastcgi_params;
+
+#         fastcgi_split_path_info ^(.+\.php)(/.+)$;
+#         fastcgi_param PATH_INFO $fastcgi_path_info;
+#         fastcgi_param PATH_TRANSLATED $document_root$fastcgi_path_info;
+#         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+#         fastcgi_param  SERVER_PORT 80;
+#         fastcgi_param  SERVER_NAME symfony.dev;
+#     }
+
+    location ~ \.php {
+#        Messes up with SEF URIs, not sure it's even needed
+#        try_files $uri =404;
+
+        include fastcgi_params;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_param PATH_INFO $fastcgi_path_info;
+        fastcgi_param PATH_TRANSLATED $document_root$fastcgi_path_info;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param SERVER_PORT 80;
+        fastcgi_param SERVER_NAME vifeed.dev;
+
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+#        fastcgi_pass 127.0.0.1:9000;
+        #default['php-fpm']['pool']['www']['listen']
+        fastcgi_pass unix:/var/run/php-fpm-www.sock;
+
+        fastcgi_index app_dev.php; 
+        
+        fastcgi_connect_timeout 60;
+        fastcgi_send_timeout 180;
+        fastcgi_read_timeout 180;
+        fastcgi_buffer_size 128k;
+        fastcgi_buffers 4 256k;
+        fastcgi_busy_buffers_size 256k;
+        fastcgi_temp_file_write_size 256k;
+        fastcgi_intercept_errors on;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+}
