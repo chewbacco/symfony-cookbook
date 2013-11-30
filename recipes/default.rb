@@ -45,6 +45,8 @@ nginx_site "#{node[:symfony][:domain]}.conf" do
   enable true
 end
 
+include_recipe "composer"
+
 include_recipe "php-fpm"
 
 ruby_block "php-fpm-ini" do
