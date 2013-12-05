@@ -50,7 +50,7 @@ ruby_block "php-fpm-ini" do
   notifies :restart, "service[php-fpm]"
 end
 
-include_recipe "git"
+include_recipe "git::default"
 include_recipe "php"
 include_recipe "php::module_mysql"
 include_recipe "mysql::client"
