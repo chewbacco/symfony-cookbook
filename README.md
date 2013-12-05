@@ -25,3 +25,6 @@ Other Debian and RHEL family distributions are assumed to work.
 # Attributes
 
 # Recipes
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/chewbacco/symfony-cookbook/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
