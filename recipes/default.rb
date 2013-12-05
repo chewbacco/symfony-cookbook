@@ -33,17 +33,7 @@ end
 #execute "apt-key update"
 execute "apt-get update"
 
-#1.4.3
-include_recipe "nginx"
-
-template "#{node[:nginx][:dir]}/sites-available/#{node[:symfony][:domain]}.conf" do
-  source "nginx-site.conf.erb"
-  notifies :reload, "service[nginx]"
-end
-
-nginx_site "#{node[:symfony][:domain]}.conf" do
-  enable true
-end
+include_recipe "symfony::nginx"
 
 include_recipe "composer"
 
@@ -60,7 +50,7 @@ ruby_block "php-fpm-ini" do
   notifies :restart, "service[php-fpm]"
 end
 
-include_recipe "git"
+include_recipe "git::default"
 include_recipe "php"
 include_recipe "php::module_mysql"
 include_recipe "mysql::client"
