@@ -35,6 +35,8 @@ execute "apt-get update"
 
 include_recipe "symfony::nginx"
 
+include_recipe "composer"
+
 include_recipe "php-fpm"
 
 ruby_block "php-fpm-ini" do
