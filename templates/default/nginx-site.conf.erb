@@ -14,7 +14,6 @@ server {
     rewrite ^/(.*)/$ $scheme://<%= node[:symfony][:domain] %>/$1 permanent;
 <% end %>
 
-
     root <%= node[:symfony][:document_root] %>;
 
     error_log /var/log/nginx/<%= node[:symfony][:domain] %>-error.log error;
