@@ -1,6 +1,8 @@
 rvm:
   - 1.9.3
   - 2.0.0
+before_script:
+  - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 script:
   - bundle exec foodcritic -f any .
   - bundle exec rspec --color --format progress
