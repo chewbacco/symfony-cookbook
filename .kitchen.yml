@@ -17,3 +17,12 @@ suites:
     run_list:
       - recipe[symfony::default]
     attributes:
+      mysql:
+        server_root_password: rootpass
+        server_debian_password: debpass
+        server_repl_password: replpass
+      symfony:
+        database:
+        password: myapp_1234
+        name: symfony
+        user: symfony
