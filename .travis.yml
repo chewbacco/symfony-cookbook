@@ -1,0 +1,13 @@
+rvm:
+  - 1.9.3
+  - 2.0.0
+before_script:
+  - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+script:
+  - bundle exec foodcritic -f any .
+  - bundle exec rspec --color --format progress
+  - bundle exec rubocop
+
+notifications:
+  flowdock: 
+    secure: "YcIF6cHvV74wLq6TT/NrrHPJrASzHoZAE/QX40nEUVzA1RusPz0/FXnYI3Xen39Tg32eg01NL72cED3NehiEdh+Z5u+gsasCa+q5XpL89kGzc2VWzuNZ9H8WNrWX0+1Mv9fSWcqtrb9zkqo1lAVUKtys9pL1ZZizTZUHyL4BFq0="
