@@ -16,7 +16,7 @@ require 'spec_helper'
 
 describe 'symfony::default' do
   let(:runner) do
-    ChefSpec::Runner.new(platform: 'ubuntu', version: '12.04')  do |node|
+    ChefSpec::Runner.new(log_level: :error, platform: 'ubuntu', version: '12.04')  do |node|
       node.set[:mysql][:server_root_password] = 'rootpass'
       node.set[:mysql][:server_debian_password] = 'debpass'
       node.set[:mysql][:server_repl_password] = 'replpass'
