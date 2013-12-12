@@ -1,5 +1,7 @@
 # symfony Cookbook
 
+[![Dependency Status](https://gemnasium.com/chewbacco/symfony-cookbook.png)](https://gemnasium.com/chewbacco/symfony-cookbook) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/chewbacco/symfony-cookbook/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
 ## Requirements
 
 ###Cookbooks
@@ -26,7 +28,6 @@ Other Debian and RHEL family distributions are assumed to work.
 
 # Recipes
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/chewbacco/symfony-cookbook/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 ## Testing
 
