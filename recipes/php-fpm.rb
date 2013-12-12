@@ -9,5 +9,5 @@ ruby_block 'php-fpm-ini' do
     file.write_file
   end
   notifies :restart, 'service[php-fpm]'
-  only_if {node['php-fpm']['directives']}
+  only_if { node['php-fpm']['directives'] }
 end
