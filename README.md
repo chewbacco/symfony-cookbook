@@ -1,5 +1,7 @@
 # symfony Cookbook
 
+[![Build Status](https://travis-ci.org/chewbacco/symfony-cookbook.png?branch=master)](https://travis-ci.org/chewbacco/symfony-cookbook)
+
 ## Requirements
 
 ###Cookbooks
