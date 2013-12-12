@@ -1,6 +1,6 @@
 # symfony Cookbook
 
-[![Dependency Status](https://gemnasium.com/chewbacco/symfony-cookbook.png)](https://gemnasium.com/chewbacco/symfony-cookbook) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/chewbacco/symfony-cookbook/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+[![Build Status](https://travis-ci.org/chewbacco/symfony-cookbook.png?branch=master)](https://travis-ci.org/chewbacco/symfony-cookbook) [![Dependency Status](https://gemnasium.com/chewbacco/symfony-cookbook.png)](https://gemnasium.com/chewbacco/symfony-cookbook) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/chewbacco/symfony-cookbook/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 ## Requirements
 
