@@ -30,3 +30,5 @@ suites:
           password: myapp_1234
           name: symfony
           user: symfony
+        projects:
+          - { domain: 'symfony-app.dev', document_root: '/var/sites/symfony-app.dev/web', remove_trailing_slash: false }
