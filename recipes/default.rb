@@ -30,7 +30,7 @@ apt_repository 'ondrej-php' do
   # key "E5267A6C"
   action :add
 end
-# execute "apt-key update"
+
 execute 'apt-get update'
 
 include_recipe 'symfony::nginx'
