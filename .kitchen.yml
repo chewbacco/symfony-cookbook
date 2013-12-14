@@ -10,7 +10,11 @@ platforms:
     driver_config:
       box: opscode-ubuntu-12.04
       box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_provisionerless.box
-  - name: centos-6.4
+      require_chef_omnibus: true
+      customize:
+         memory: 512
+#  - name: centos-6.4
+
 
 suites:
   - name: default
@@ -23,6 +27,6 @@ suites:
         server_repl_password: replpass
       symfony:
         database:
-        password: myapp_1234
-        name: symfony
-        user: symfony
+          password: myapp_1234
+          name: symfony
+          user: symfony
