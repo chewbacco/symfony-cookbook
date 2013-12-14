@@ -1,7 +1,6 @@
 default[:symfony][:user] = 'symfony-app'
 default[:symfony][:group] = 'symfony-app'
-default[:symfony][:domain] = 'symfony-app.dev'
-default[:symfony][:document_root] = "/var/sites/#{ default[:symfony][:domain] }/web"
+
 default[:symfony][:remove_trailing_slash] = false
 
 default[:nginx][:default_site_enabled] = false
