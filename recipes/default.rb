@@ -41,7 +41,6 @@ include_recipe 'symfony::php-fpm'
 
 include_recipe 'git::default'
 include_recipe 'php'
-include_recipe 'symfony::database'
 
 # include_recipe "rvm"
 
