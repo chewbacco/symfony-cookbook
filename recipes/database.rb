@@ -1,4 +1,3 @@
-include_recipe 'php::module_mysql'
 include_recipe 'mysql::client'
 include_recipe 'mysql::server'
 include_recipe 'database::mysql'

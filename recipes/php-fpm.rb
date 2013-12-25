@@ -11,3 +11,7 @@ ruby_block 'php-fpm-ini' do
   notifies :restart, 'service[php-fpm]'
   only_if { node['php-fpm']['directives'] }
 end
+
+package 'php5-mysql' do
+  action :install
+end
