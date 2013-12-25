@@ -22,12 +22,12 @@ server {
 
     client_max_body_size 4M;
 
-    index app_dev.php;
+    index <% @index_file %>;
 
     try_files $uri $uri/ @rewrite;
 
     location @rewrite {
-        rewrite ^/(.*)$ /app_dev.php/$1;
+        rewrite ^/(.*)$ /<% @index_file %>/$1;
     }
 
     location = /nginx_stub_status {
@@ -95,7 +95,7 @@ server {
         #default['php-fpm']['pool']['www']['listen']
         fastcgi_pass unix:/var/run/php-fpm-www.sock;
 
-        fastcgi_index app_dev.php; 
+        fastcgi_index <% @index_file %>; 
         
         fastcgi_connect_timeout 60;
         fastcgi_send_timeout 180;
