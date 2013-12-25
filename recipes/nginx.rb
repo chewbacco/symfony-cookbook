@@ -1,4 +1,4 @@
-# 1.4.3
+# 1.4.4
 include_recipe 'nginx'
 
 node[:symfony][:projects].each { |project| 
