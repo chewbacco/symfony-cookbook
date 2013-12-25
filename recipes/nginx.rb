@@ -8,7 +8,7 @@ node[:symfony][:projects].each { |project|
        'domain' => project[:domain],
        'document_root' => project[:document_root],
        'remove_trailing_slash' => project[:remove_trailing_slash],
-       'index_file' => project[:index_file] ||= "app_dev.php"
+       'index_file' => project[:index_file] ? project[:index_file] : "app_dev.php"
     )
   end
 
