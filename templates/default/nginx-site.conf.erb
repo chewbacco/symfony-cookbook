@@ -21,12 +21,12 @@ server {
 
     client_max_body_size 4M;
 
-    index <% @index_file %>;
+    index <%= @index_file %>;
 
     try_files $uri $uri/ @rewrite;
 
     location @rewrite {
-        rewrite ^/(.*)$ /<% @index_file %>/$1;
+        rewrite ^/(.*)$ /<%= @index_file %>/$1;
     }
 
     location = /nginx_stub_status {
@@ -42,7 +42,7 @@ server {
         # Messes up with SEF URIs, not sure it's even needed
         # try_files $uri =404;
 
-        fastcgi_index <% @index_file %>;
+        fastcgi_index <%= @index_file %>;
         #fastcgi_pass 127.0.0.1:9000;
         fastcgi_pass unix:/var/run/php-fpm-www.sock;
 
