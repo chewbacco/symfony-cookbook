@@ -6,7 +6,7 @@ server {
 }
 
 server {
-    listen 80 default_server;
+    listen 80<% if @default_server %> default_server<% end %>;
     server_name localhost <%= @domain %>;
 
 <% if @remove_trailing_slash %>
