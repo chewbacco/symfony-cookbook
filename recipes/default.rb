@@ -41,7 +41,7 @@ include_recipe 'symfony::php-fpm'
 
 include_recipe 'git::default'
 include_recipe 'php'
-include_recipe "rvm::system"
+include_recipe 'rvm::system'
 
 Package 'rubygems'
 
