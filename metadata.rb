@@ -6,10 +6,10 @@ description      'Deploys and configures Symfony-based applications'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '2.0.5'
 
-depends 'nginx', '~> 2.2.2'
+depends 'nginx', '~> 2.3.0'
 depends 'php-fpm', '~> 0.6.3'
 depends 'php', '~> 1.3.12'
-depends 'mysql', '~> 4.0.20'
+depends 'mysql', '~> 4.1.1'
 depends 'database', '~> 1.6.0'
 depends 'rvm', '~> 0.9.0'
 depends 'git', '~> 2.9.0'
