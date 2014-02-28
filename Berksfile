@@ -1,5 +1,5 @@
 source "http://api.berkshelf.com"
 
 metadata
-cookbook 'rvm', git: 'git://github.com/fnichol/chef-rvm.git'
-cookbook 'composer', git: 'git://github.com/Morphodo/chef-composer.git'
+cookbook 'rvm', github: 'fnichol/chef-rvm'
+cookbook 'composer', github: 'Morphodo/chef-composer'
