@@ -4,7 +4,7 @@ maintainer_email 'hd.deman@gmail.com'
 license          'All rights reserved'
 description      'Deploys and configures Symfony-based applications'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '2.0.5'
+version          '2.0.6'
 
 depends 'nginx', '~> 2.4.4'
 depends 'php-fpm', '~> 0.6.3'
