@@ -35,16 +35,22 @@ execute 'apt-get update'
 
 include_recipe 'symfony::nginx'
 
-include_recipe 'composer'
+include_recipe 'composer::install'
 
 include_recipe 'symfony::php-fpm'
 
 include_recipe 'git::default'
 include_recipe 'php'
-include_recipe 'rvm::system'
+# include_recipe 'rvm::system'
+
+include_recipe "rbenv::default"
+include_recipe "rbenv::ruby_build"
+
+rbenv_ruby "2.1.1"
 
 Package 'rubygems'
 
 Execute 'gem install sass' do
   not_if 'which sass'
 end
+
