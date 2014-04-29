@@ -7,7 +7,7 @@ server {
 
 server {
     listen 80<% if @default_server %> default_server<% end %>;
-    server_name localhost <%= @domain %>;
+    server_name <%= @aliases %> <%= @domain %>;
 
 <% if @remove_trailing_slash %>
     # remove trailing slash
@@ -91,7 +91,7 @@ server {
 
 #         fastcgi_index app.php;
 
-#         fastcgi_pass unix:/var/run/php5-fpm.sock;        
+#         fastcgi_pass unix:/var/run/php5-fpm.sock;
 #         include fastcgi_params;
 
 #         fastcgi_split_path_info ^(.+\.php)(/.+)$;
