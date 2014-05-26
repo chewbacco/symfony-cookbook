@@ -20,9 +20,6 @@ node[:symfony][:projects].each { |project|
   php_fpm_pool project[:domain] do
     listen_owner 'www-data'
     listen_group 'www-data'
-  end
-
-  ruby_block 'php-fpm-poll' do
     notifies :restart, 'service[php-fpm]'
   end
 }
