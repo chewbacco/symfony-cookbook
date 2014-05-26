@@ -15,3 +15,13 @@ end
 package 'php5-mysql' do
   action :install
 end
+
+node[:symfony][:projects].each { |project|
+  block do
+    php_fpm_pool project[:domain] do
+      listen_owner 'www-data'
+      listen_group 'www-data'
+    end
+    notifies :restart, 'service[php-fpm]'
+  end
+}
