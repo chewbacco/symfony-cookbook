@@ -1,12 +1,12 @@
 # Managed by Chef for <%= @domain %>
 server {
-    listen 80;
+    listen <%= @listen_port %>;
     server_name www.<%= @domain %>;
     rewrite ^ $scheme://<%= @domain %>$request_uri? permanent;
 }
 
 server {
-    listen 80<% if @default_server %> default_server<% end %>;
+    listen <%= @listen_port %><% if @default_server %> default_server<% end %>;
     server_name <%= @aliases %> <%= @domain %>;
 
 <% if @remove_trailing_slash %>

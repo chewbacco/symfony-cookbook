@@ -6,6 +6,7 @@ node[:symfony][:projects].each { |project|
     source 'nginx-site.conf.erb'
     variables(
        'domain' => project[:domain],
+       'listen_port' => project[:listen_port],
        'aliases' => project[:aliases],
        'document_root' => project[:document_root],
        'remove_trailing_slash' => project[:remove_trailing_slash],
