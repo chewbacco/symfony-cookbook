@@ -17,7 +17,7 @@ package 'php5-mysql' do
 end
 
 node[:symfony][:projects].each { |project|
-  php_fpm_pool project[:domain] do
+  php_fpm_pool project[:name] do
     listen_owner 'www-data'
     listen_group 'www-data'
     notifies :restart, 'service[php-fpm]'

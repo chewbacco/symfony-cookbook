@@ -44,7 +44,7 @@ server {
 
         fastcgi_index <%= @index_file %>;
         #fastcgi_pass 127.0.0.1:9000;
-        fastcgi_pass unix:/var/run/php-fpm-www.sock;
+        fastcgi_pass unix:/var/run/php-fpm-<%= @project_name %>.sock;
 
         include fastcgi_params;
         fastcgi_split_path_info ^(.+\.php)(/.+)$;

@@ -11,7 +11,8 @@ node[:symfony][:projects].each { |project|
        'document_root' => project[:document_root],
        'remove_trailing_slash' => project[:remove_trailing_slash],
        'index_file' => project[:index_file],
-       'default_server' => project[:default_server]
+       'default_server' => project[:default_server],
+       'project_name' => project[:name]
     )
   end
 
