@@ -16,7 +16,7 @@ node[:symfony][:projects].each { |project|
     )
   end
 
-  nginx_site "#{project[:domain]}.conf" do
+  nginx_site "#{project[:name]}.conf" do
     enable true
     notifies :reload, 'service[nginx]'
   end
