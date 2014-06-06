@@ -2,16 +2,16 @@
 include_recipe 'nginx'
 
 node[:symfony][:projects].each { |project|
-  template "#{node[:nginx][:dir]}/sites-available/#{project[:domain]}.conf" do
+  template "#{node[:nginx][:dir]}/sites-available/#{project[:name]}.conf" do
     source 'nginx-site.conf.erb'
     variables(
        'domain' => project[:domain],
-       'listen_port' => project[:listen_port],
+       'listen' => project[:listen] || 80,
        'aliases' => project[:aliases],
        'document_root' => project[:document_root],
        'remove_trailing_slash' => project[:remove_trailing_slash],
        'index_file' => project[:index_file],
-       'default_server' => project[:default_server],
+       'default_server' => project[:default_server] || false,
        'project_name' => project[:name]
     )
   end
