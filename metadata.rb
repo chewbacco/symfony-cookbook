@@ -7,7 +7,7 @@ long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '2.0.6'
 
 depends 'nginx', '~> 2.7.0'
-depends 'php-fpm', '~> 0.6.3'
+depends 'php-fpm', '~> 0.6.8'
 depends 'php', '~> 1.4.6'
 depends 'mysql', '~> 5.1.8'
 depends 'database', '~> 2.1.6'
