@@ -1,5 +1,5 @@
 rvm:
-  - 2.1.1
+  - 2.1.2
 before_script:
   - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 script:
