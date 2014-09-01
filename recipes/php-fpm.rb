@@ -1,3 +1,8 @@
+#if RUBY_VERSION =~ /1.9/
+Encoding.default_external = Encoding::UTF_8
+#  Encoding.default_internal = Encoding::UTF_8
+#end
+
 include_recipe 'php-fpm'
 
 ruby_block 'php-fpm-ini' do

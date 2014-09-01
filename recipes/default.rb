@@ -33,6 +33,23 @@ end
 
 execute 'apt-get update'
 
+include_recipe 'rbenv::default'
+include_recipe 'rbenv::ruby_build'
+
+rbenv_ruby '2.1.2' do
+  ruby_version '2.1.2'
+  global true
+end
+
+# if ubuntu 12
+# package 'rubygems'
+# if ubuntu 14
+package 'rubygems-integration'
+
+execute 'gem install sass' do
+  not_if 'which sass'
+end
+
 include_recipe 'symfony::nginx'
 
 include_recipe 'composer::install'
@@ -42,17 +59,3 @@ include_recipe 'symfony::php-fpm'
 include_recipe 'git::default'
 include_recipe 'php'
 # include_recipe 'rvm::system'
-
-include_recipe 'rbenv::default'
-include_recipe 'rbenv::ruby_build'
-
-rbenv_ruby '2.1.2' do
-  ruby_version '2.1.2'
-  global true
-end
-
-Package 'rubygems'
-
-Execute 'gem install sass' do
-  not_if 'which sass'
-end
