@@ -1,14 +1,16 @@
 source 'https://rubygems.org'
-ruby "2.1.1"
+ruby "2.1.2"
+
+gem 'rake', '~> 10.3.2'
 
 group :unit do
-  gem 'berkshelf',  '3.1.2'
-  gem 'chefspec',   '~> 3.4.0'
+  gem 'berkshelf',  '3.1.5'
+  gem 'chefspec',   '~> 4.0.2'
 end
 
 group :lint do
-  gem 'foodcritic', '~> 3.0.3'
-  gem 'rubocop',    '~> 0.21.0'
+  gem 'foodcritic', '~> 4.0.0'
+  gem 'rubocop',    '~> 0.25.0'
 end
 
 group :integration do
